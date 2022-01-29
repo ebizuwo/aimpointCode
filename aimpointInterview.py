@@ -164,8 +164,12 @@ class MPGPredictor:
         X_train, y_train, X_test, y_test = self.get_test_train_split_data()
         linreg.fit(X_train, y_train)
         score = linreg.score(X_test, y_test)
+        preds = linreg.predict(X_test)
+        mse = sklearn.metrics.mean_squared_error(y_test, preds)
+        mae = sklearn.metrics.mean_absolute_error(y_test, preds)
         print(f"LinearRegression Fit \n R score: {score}")
         self.linreg = linreg
+        return score, mse, mae
 
     def predict_line_reg(self, X):
         """
@@ -223,12 +227,17 @@ class AnswerBody:
         df = df[['Make', 'MPG']].groupby(['Make']).mean()
         return df
 
-    def get_answer_four(self):
+    def get_answer_four(self, model):
         """
         This function is a function to easily call the answer needed
         :return: Model: sklearn Model
         """
-        return True
+        score, mse, mae = model.fit_simple_linear_reg()
+        print(f"""
+            mean squared error: {mse}
+            mean absolute error: {mae}
+        """)
+
 
     def __repr__(self):
         """
@@ -241,11 +250,13 @@ class AnswerBody:
 rd = Reader()
 rd.init()
 
+# predictor
 mpgPred = MPGPredictor(rd.df)
 mpgPred.fit_simple_linear_reg()
 
 # answers
-# ans = AnswerBody(rd)
-# ans.get_answer_one()
-# ans.get_answer_two()
-# ans.get_answer_three()
+ans = AnswerBody(rd)
+print(ans.get_answer_one())
+print(ans.get_answer_two())
+print(ans.get_answer_three())
+ans.get_answer_four(mpgPred)

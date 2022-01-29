@@ -1,0 +1,49 @@
+1. Car with Higest MPG: Mazda GLC
+
+2. MPG by cylinder count
+3          20.550000
+4          28.862319
+5          27.366667
+6          19.985714
+8          14.270370
+
+3. Each makes average MPG
+AMC         17.617241
+Audi        26.714286
+BMW         23.750000
+Buick       19.182353
+Cadillac    19.750000
+Capri       25.000000
+Chevrolet   19.851111
+Chevrolete  16.000000
+Chevy       20.500000
+Chrysler    17.266667
+Citroen      0.000000
+Datsun      31.113043
+Dodge       22.060714
+Fiat        28.912500
+Ford        18.950943
+Hi           9.000000
+Honda       33.761538
+Mazda       30.058333
+Mercedes    23.966667
+Mercury     19.118182
+Nissan      36.000000
+Oldsmobile  21.100000
+Opel        25.750000
+Peugeot     23.687500
+Plymouth    21.025000
+Pontiac     20.012500
+Renault     32.880000
+Saab        19.120000
+Subaru      30.525000
+Toyota      28.165385
+Triumph     35.000000
+Volkswagen  30.456522
+Volvo       21.116667
+
+
+4. Without too much tinkering with model hyperparameters and regression models
+mean square error and absolute error as followed
+MSE = 22.046128912855156
+MAE = 3.0608393792644333
